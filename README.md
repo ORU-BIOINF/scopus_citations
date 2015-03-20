@@ -3,4 +3,6 @@
 - pandas
 
 ###Usage###
-python scopus_citations.py scopus_file.csv publication_list.txt
+```bash
+$ python scopus_citations.py scopus_file.csv publication_list.txt
+```
