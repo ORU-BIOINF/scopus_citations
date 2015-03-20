@@ -20,7 +20,7 @@ willem_top = pd.read_csv(scopus_file,skiprows=list(range(6))+list(range(8,10000)
 willem.columns = pd.Index(list(willem.columns[:7]) + list(willem_top.columns[7:]))
 
 # Read the publication list from dirk, titlest start with @ and entries seperated by new line
-with open(publication_file,encoding= "ISO-8859-1") as fh:
+with open(publication_file,encoding= "UTF-8") as fh:
     lines = list(map(str.strip,fh.readlines()))
 
 # Create a dictionary from Scopus. The key is a tuple of the words in the title, and the value is the total citations for that paper (can be multiple values if multiple titles are the same)
