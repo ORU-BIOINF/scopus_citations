@@ -46,14 +46,14 @@ for key in same_key:
     # Key is the line number in the publication list, value is the citation count
     titles[title_ind] = str(tot)
 
-# Print titles that did not match
-print("\n".join(sorted(map(lambda x: " ".join(x[0]) + " "+str(x[1]),scopus_dict.items()))),file=open("no_match_scopus.txt","w"),sep="\n")
-print("\n".join(sorted(map(lambda x: " ".join(x),titles_dict.keys()))),file=open("no_match_publication.txt","w"),sep="\n")
-
-# Print the publication list with citation counts for those entries that were found in Scopus.
 p = publication_file.split(".")
 base = p[:-1]
 f_type = p[-1]
+# Print titles that did not match
+print("\n".join(sorted(map(lambda x: " ".join(x[0]) + " "+str(x[1]),scopus_dict.items()))),file=open(".".join(base + ["no_match_scopus","txt"]),"w"),sep="\n")
+print("\n".join(sorted(map(lambda x: " ".join(x),titles_dict.keys()))),file=open(".".join(base+["no_match_publication","txt"]),"w"),sep="\n")
+
+# Print the publication list with citation counts for those entries that were found in Scopus.
 with open(".".join(base +["with_citations",f_type]),"w") as fh:
     should_insert_next_empty = False
     next_cite = ""
